@@ -108,7 +108,9 @@
   $allergy = [];
   foreach ($result_answer as $result_answer_data) {
     $decode_array = json_decode($result_answer_data["allergy"]);
-    $allergy = array_merge($allergy, $decode_array);
+    if ($decode_array != null) {
+      $allergy = array_merge($allergy, $decode_array);
+    }
   }
   // 重複した値を除去
   $allergy = array_unique($allergy);
